@@ -1,0 +1,686 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
+    
+    
+      
+        <title>Dockerfile base - Docs KiteMoon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Docs KiteMoon" class="md-header__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs KiteMoon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dockerfile base
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Docker
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Docs KiteMoon" class="md-nav__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Docs KiteMoon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dockerfile base
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile base
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入基础镜像-FROM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      构建中间层-CMD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-addcopy" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入文件-ADD&amp;COPY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      引入环境变量-ENV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-workdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置工作目录-WORKDIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      暴露的端口号-EXPOSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器使用的用户-USER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-arg" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译入参--ARG
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cmd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      最后的步骤-CMD
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Dockerfile base</h1>
+
+<h2 id="_1">简介</h2>
+<p>镜像构建其实就是一个叠叠乐的过程,通过执行一系列的命令来附加不同的层,最后将层合并为镜像来实现</p>
+<h2 id="_2">创建流程</h2>
+<p>创建镜像的过程也就是我们编辑dockerfile的过程,具体过程如下</p>
+<blockquote>
+<p>注意,文件名必须要是Dockerfile</p>
+</blockquote>
+<h3 id="-from">导入基础镜像-FROM</h3>
+<p>首先第一步,我们需要导入一个基础镜像,基础镜像提供一个最底层的OS(这个OS不完整,内核啥都是用的宿主机),这里我们选用centos,作为基础镜像.</p>
+<blockquote>
+<p>FROM一个文件中只能出现一次,只能在最开头</p>
+</blockquote>
+<p>FROM:继承基础镜像</p>
+<pre><code class="language-dockerfile">FROM centos:7 # 指定了centos7惊喜那个
+</code></pre>
+<h3 id="-cmd">构建中间层-CMD</h3>
+<p>我们导入基础镜像后,需要同时导入我们的业务代码,导入业务代码的过程中,我们还需要去做其他的准备工作</p>
+<ul>
+<li>部署对应的运行环境</li>
+<li>引入程序代码</li>
+</ul>
+<p>这些步骤就是中间层要做的,中间层的代码是RUN,一个容器可以有执行多次RUN,每执行一次RUN代表新生成一个层</p>
+<blockquote>
+<p>因此不建议部署太多的CMD,额外的层会带来额外的开销</p>
+</blockquote>
+<h3 id="-addcopy">导入文件-ADD&amp;COPY</h3>
+<p>导入文件分为两种,COPY和ADD</p>
+<p>一般来说,我们不会在容器中去下载过多的软件,这一系列软件也包含了<code>curl</code>和<code>wget</code>,但是没了他们我们业务代码就不好导入了,此时就可以使用<code>ADD</code>指令,将我们本地文件复制到容器之中</p>
+<blockquote>
+<p>你会发现很多开源项目很喜欢把dockerfile放到根目录,因为这样很好做CICD</p>
+</blockquote>
+<p>具体的实现指令如下</p>
+<p>ADD命令如下</p>
+<blockquote>
+<p>注意,ADD如果移动的是压缩包,会<strong>自动解压</strong></p>
+</blockquote>
+<pre><code>ADD &lt;宿主机文件路径&gt; &lt;容器内路径&gt;
+ADD ./install.tar /mnt/app/
+</code></pre>
+<p>copy命令如下</p>
+<blockquote>
+<p>COPY是不会自动解压的,因此你还得开个RUN,然后去解压</p>
+</blockquote>
+<pre><code>copy &lt;宿主机文件路径&gt; &lt;容器内路径&gt;
+copy ./install.tar /mnt/app/
+</code></pre>
+<h3 id="-env">引入环境变量-ENV</h3>
+<p>在容器中,有个很重要的概念就是环境变量,因为容器大概率跑的是无状态的应用,但是你的程序极大概率是要引入配置文件的(比如外部数据库的账号密码等),这种情况下,就需要使用环境变量,在环境变量中存储账号密码信息,你的程序连接数据库的位置采用环境变量,这样有效的避免了无意义的卷映射.</p>
+<blockquote>
+<p>没必要为了改一个配置文件去设置-v参数,特别是多容器环境下,更不应该如此,也很难实现,这就是为啥有configmap的存在</p>
+</blockquote>
+<p>引入的代码如下</p>
+<pre><code>ENV &lt;key&gt; &lt;VALUE&gt;
+ENV mysqlHost 192.168.92.100
+</code></pre>
+<blockquote>
+<p>支持用<code>-e &lt;key&gt;=&lt;value&gt;</code>去覆盖这个环境变量,CLI的优先级高于dockerfile的.</p>
+</blockquote>
+<h3 id="-workdir">配置工作目录-WORKDIR</h3>
+<p>配置工作目录比较重要,他关系到你RUN和CMD执行的位置</p>
+<p>RUN和CMD执行的默认位置为<code>/</code>,但是你指定了工作目录后,会以工作目录来执行,也就无需提前开个RUN进入到指定路径中.直接就可以在工作目录下工作</p>
+<pre><code>WORKDIR &lt;工作路径&gt;
+WORKDIR /mnt/app
+</code></pre>
+<h3 id="-expose">暴露的端口号-EXPOSE</h3>
+<p>在WEB服务上,我们希望能够暴露端口出来,提供给我们的其他POD或者用户使用,就需要理由该特性</p>
+<blockquote>
+<p>你不设置...其实也可以访问</p>
+<p>支持多条EXPOSE语句</p>
+</blockquote>
+<pre><code>EXPOSE &lt;端口号&gt;
+EXPOSE 80
+</code></pre>
+<h3 id="-user">容器使用的用户-USER</h3>
+<p>容器大多数情况下都会自动使用root,但是有的软件比较挑剔,比如是从裸机迁移到容器中,就会强制要求用户使用非ROOT用户,此时就需要使用USER参数去实现了</p>
+<blockquote>
+<p>minikube好像就必须运行在非root用户上</p>
+</blockquote>
+<pre><code>USER &lt;用户名&gt;
+USER KiteMoon
+</code></pre>
+<h3 id="-arg">编译入参--ARG</h3>
+<p>ARG可以用于设置编译镜像时传入的参数,来实现基于模板构建</p>
+<blockquote>
+<p>有的用户很挑剔啊,LABEL必须要是自己公司的名字,但是我们又不可能手动改,就用这个</p>
+</blockquote>
+<p>用得少,我也没用过,这里就不多写,怕误导</p>
+<h3 id="-cmd_1">最后的步骤-CMD</h3>
+<p>之前容器的状态部分我说过,容器停止的依据不是基于我们exec进去的shell,而是基于容器CMD所执行语句的状态决定的</p>
+<p>在容器启动时,会执行最后一个CMD语句,在该语句执行结束后,或者发生错误退出后,<strong>容器会自动进入停止状态</strong>,这也是我们希望看见的.</p>
+<p>因此,请将你程序的启动指令放在这里,作为启动命令,如果你的程序执行完毕,那么容器也会停止,资源也会自动释放</p>
+<blockquote>
+<p>如果你在docker run的过程中后面加了命令,则会替换掉你CMD的命令,你容器的启动与停止也决定于你执行的这条命令</p>
+</blockquote>
+<pre><code>CMD &lt;启动程序的代码&gt;
+CMD /proess
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+      
+    
+  </body>
+</html>
