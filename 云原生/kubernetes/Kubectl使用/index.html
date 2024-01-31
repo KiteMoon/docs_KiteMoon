@@ -1,0 +1,1148 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../K8s%E7%9A%84%E4%BB%8B%E7%BB%8D/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
+    
+    
+      
+        <title>Kubectl使用 - Docs KiteMoon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Kubectl使用 - Docs KiteMoon" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="./assets/images/social/云原生/kubernetes/Kubectl使用.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Kubectl使用 - Docs KiteMoon" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/云原生/kubernetes/Kubectl使用.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bash" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Docs KiteMoon" class="md-header__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs KiteMoon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kubectl使用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../docker/" class="md-tabs__link">
+          
+  
+  云原生
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Docs KiteMoon" class="md-nav__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Docs KiteMoon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    云原生
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            云原生
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../docker/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../K8s%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K8s的基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Kubectl使用
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Kubectl使用
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASH补全
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置文件的选择
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      集群切换
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      增加命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="增加命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      create
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接创建POD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取某个POD的部署文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      同时应用多个文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="查询命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看是否有命名空间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#podnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看与筛选POD和NODE的标签
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新资源
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-" class="md-nav__link">
+    <span class="md-ellipsis">
+      edit-文本编辑器修改现有资源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-" class="md-nav__link">
+    <span class="md-ellipsis">
+      set-直接修改现有资源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-" class="md-nav__link">
+    <span class="md-ellipsis">
+      replace-破坏性更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看日志
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="查看日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      单个容器查看
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      多个容器查看
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describe-" class="md-nav__link">
+    <span class="md-ellipsis">
+      describe-获取资源对象详细信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-" class="md-nav__link">
+    <span class="md-ellipsis">
+      top-查看资源负载
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exec-" class="md-nav__link">
+    <span class="md-ellipsis">
+      exec-执行命令
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Kubectl使用</h1>
+
+<blockquote>
+<p>常用的kubectl操作和故障排除</p>
+</blockquote>
+<h2 id="bash">BASH补全</h2>
+<p>命令基于你使用的bash,其他的自行文档</p>
+<pre><code>yum install -y bash-completion
+source &lt;(kubectl completion bash)
+echo &quot;source &lt;(kubectl completion bash)&quot; &gt;&gt; ~/.bashrc
+source /usr/share/bash-completion/bash_completion
+source &lt;(kubectl completion bash)
+</code></pre>
+<h2 id="_1">配置文件的选择</h2>
+<p>配置文件选择基于环境变量和家目录下的配置文件中选择</p>
+<p>环境变量:<code>KUBECONFIG</code></p>
+<p>配置文件:`~/.kube/config</p>
+<h2 id="_2">集群切换</h2>
+<p>正常k8s的config是单个集群,但是也支持多集群,切换命令如下</p>
+<blockquote>
+<p>考试中也有这个哦,第一题都让你切换</p>
+</blockquote>
+<pre><code>kubectl config use-context &lt;集群名&gt;
+</code></pre>
+<h2 id="_3">增加命令</h2>
+<p>对集群进行增加命令有两种</p>
+<h3 id="create">create</h3>
+<p>create用于新创建环境,当我们执行create的时候.如果发现集群中的资源<strong>已经存在</strong>,则会<strong>返回错误</strong>,因此只适合于新创建的环境</p>
+<blockquote>
+<p>拿这玩意去做job类创建挺不错的,避免错误多次创建同一种任务</p>
+</blockquote>
+<pre><code>kubectl create -f &lt;文件&gt;
+</code></pre>
+<h3 id="apply">apply</h3>
+<p>apply适合于修改资源,他会将<strong>所有的操作</strong>重新应用一遍,可以理解为刷新配置,如果有变化,则更新,如果没有变化则无事发生</p>
+<pre><code>kubectl apply -f &lt;文件&gt;
+</code></pre>
+<h3 id="pod">直接创建POD</h3>
+<blockquote>
+<p>只建议测试时使用</p>
+</blockquote>
+<p>可以通过create命令直接拉起一个POD,但是只支持单个容器</p>
+<pre><code>kubectl creaate deployment &lt;部署对象名&gt; --image=&lt;容器镜像地址&gt; -n &lt;命名空间&gt;
+</code></pre>
+<h3 id="pod_1">获取某个POD的部署文件</h3>
+<p>K8s中的资源都有属于自己的描述文件,即为如何创建自己,如何实现自己,可以利用下面的命令获取</p>
+<pre><code>kubectl get deploy &lt;部署名&gt; -oyaml
+</code></pre>
+<p><code>-o</code>是输出 yaml是用yaml格式输出</p>
+<p>如果你忘记一个deployment的结构的话,可以使用下面的命令输出</p>
+<pre><code>kubectl get deploy &lt;部署名&gt; -oyaml &gt; ./create.yaml
+</code></pre>
+<p>同时我们也可以在创建过程中直接获取yaml文件,而不是等创建完成后再提取</p>
+<pre><code>kubectl create deployment &lt;部署名&gt; --image=&lt;镜像名&gt; --dry-run=client -oyaml
+</code></pre>
+<p><code>--dry-run=client</code> 代表干运行,即为不执行,只是模拟,此时在利用导出参数既可获得yaml</p>
+<h3 id="_4">同时应用多个文件</h3>
+<p>你希望一条命令执行几个yaml文件的时候可以使用</p>
+<blockquote>
+<p>使用该语法后,路径是不能补全的,不是很推荐</p>
+</blockquote>
+<pre><code>kubectl apply -f &lt;文件1&gt;,&lt;文件2&gt;
+</code></pre>
+<h2 id="_5">删除命令</h2>
+<p>删除命令较为简单,你带上Delete即可,需要注意,同时支持按照NAME删除和通过yaml文件删除,如果你需要删除一个大的部署方案,建议用yaml操作,避免漏掉某些配置</p>
+<pre><code class="language-shell"># 直接删除
+kubectl delete &lt;资源类型(pod/deployment/service...)&gt; &lt;name&gt;
+# 基于yaml 
+kubectl delete -f &lt;filePath&gt;
+</code></pre>
+<p>范例</p>
+<pre><code>root@ansible ~]# kubectl delete deployment nginx -n default
+deployment.apps &quot;nginx&quot; deleted
+</code></pre>
+<blockquote>
+<p>基于deployment去部署的POD,你即使直接删除了pod,deployment也会直接去新创建一个POD,因此你得去删除deployment</p>
+<p>注意:删除这种操作是要指定命名空间的</p>
+</blockquote>
+<h2 id="_6">查询命令</h2>
+<p>关键字是<code>get</code></p>
+<p>关键参数有 
+<code>-a</code>:列出所有的命名空间</p>
+<p><code>-o wide</code>:显示详细信息</p>
+<p><code>-n</code> 显示指定的命名空间</p>
+<pre><code>kubectl get &lt;资源类型&gt; &lt;资源名&gt; -n &lt;命名空间&gt;
+</code></pre>
+<p>范例如下</p>
+<pre><code>[root@ansible ~]# kubectl get deployment coredns -n kube-system
+NAME      READY   UP-TO-DATE   AVAILABLE   AGE
+coredns   2/2     2            2           2d20h
+</code></pre>
+<blockquote>
+<p>注意 <code>node</code>和<code>clusterrole</code>无命名空间隔离性,全都可用,无需指定</p>
+</blockquote>
+<h3 id="_7">查看是否有命名空间</h3>
+<p>刚才提到node和clusterole是无命名空间的,那么哪些是有的呢?请使用下面的命令查询</p>
+<blockquote>
+<p>记忆一下常用的即可</p>
+</blockquote>
+<pre><code># 查看有命名空间的
+kubectl api-resources --namespaced=true
+# 查看无命名空间的
+kubectl api-resources --namespaced=false
+</code></pre>
+<h3 id="_8">使用排序</h3>
+<p>很多时候,我们希望系统按照一定顺序返回值,比如按照名称排序,我们可以利用<code>--sort-by</code>函数去筛选</p>
+<blockquote>
+<p>筛选过程中采用<code>.</code>进行选中,类似于go的字典索引 </p>
+<p>这个需要使用索引语法,一步一步的去索引(yaml)</p>
+<p>可以配合<code>kubectl get &lt;资源类型&gt; &lt;对象&gt; -n &lt;命名空间&gt; -o yaml</code>的方式去提取出来索引信息,然后在下面用<code>.</code>去索引出来</p>
+</blockquote>
+<pre><code>kubectl get &lt;service type&gt; --sort-by=&lt;依据字段&gt;
+
+# 实例
+[root@ansible ~]# kubectl get svc -n kube-system --sort-by=.metadata.name
+NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                  AGE
+kube-dns         ClusterIP   10.96.0.10      &lt;none&gt;        53/UDP,53/TCP,9153/TCP   3d9h
+metrics-server   ClusterIP   10.96.236.215   &lt;none&gt;        443/TCP                  2d23h
+[root@ansible ~]# kubectl get svc -n kube-system --sort-by=.metadata.creationTimestamp
+NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                  AGE
+kube-dns         ClusterIP   10.96.0.10      &lt;none&gt;        53/UDP,53/TCP,9153/TCP   3d9h
+metrics-server   ClusterIP   10.96.236.215   &lt;none&gt;        443/TCP                  2d23h
+</code></pre>
+<p>需要注意,有的索引数据是<strong>一个列表</strong>,你需要索引出来,如下面命令所示</p>
+<pre><code># 实现按照重启次数输出内容
+[root@ansible ~]# kubectl get pod -n kube-system --sort-by=.status.containerStatuses[0].restartCount
+
+NAME                                       READY   STATUS                            RESTARTS      AGE
+kube-proxy-7ngfk                           1/1     Running                           1 (12h ago)   2d11h
+kube-proxy-9h996                           1/1     Running                           1 (12h ago)   2d11h
+kube-proxy-tzwj5                           1/1     Running                           1 (12h ago)   2d11h
+kube-proxy-fhx9t                           1/1     Running                           1 (12h ago)   2d11h
+kube-proxy-7hlp4                           1/1     Running                           1 (12h ago)   2d11h
+calico-node-sffkg                          1/1     Running                           1             2d14h
+coredns-6554b8b87f-6drdw                   1/1     Running                           1 (12h ago)   2d23h
+coredns-6554b8b87f-fg27k                   1/1     Running                           1 (12h ago)   2d23h
+metrics-server-8df99c47f-grfs8             1/1     Running                           1 (12h ago)   2d13h
+etcd-master-2.13x.cc                       1/1     Running                           2 (12h ago)   2d23h
+calico-node-ngbkg                          1/1     Running                           3 (12h ago)   2d14h
+calico-node-r6rrn                          1/1     Running                           3 (12h ago)   2d14h
+etcd-master-1.13x.cc                       1/1     Running                           3 (12h ago)   2d23h
+calico-node-jmwbk                          1/1     Running                           3 (12h ago)   2d14h
+</code></pre>
+<p>如果你不添加<code>[0]</code>,则会空返回</p>
+<h3 id="podnode">查看与筛选POD和NODE的标签</h3>
+<p>之前说过脏节点的概念,脏节点会为自己打上标签(Label),我们如果想要查看这些标签,可以使用扩展符<code>--show-labels</code></p>
+<pre><code>kubectl get &lt;资源类型&gt; &lt;对象名&gt; -n &lt;命名空间&gt; --show-label
+# 实例
+[root@ansible ~]# kubectl get node --show-labels
+</code></pre>
+<p><img alt=" " src="/images/Pasted image 20240129201903.png" /></p>
+<p>同时,如果我需要使用筛选功能,比如筛选所有的控制节点,同样可以使用<code>-l</code>参数实现,并且支持多种条件语法</p>
+<blockquote>
+<p><code>-l</code>无需使用索引语法,他只会去查找label中的标签</p>
+</blockquote>
+<pre><code># 使用不等于语法
+[root@ansible ~]# kubectl get node -l beta.kubernets.io/os!=windows
+NAME              STATUS   ROLES           AGE     VERSION
+master-1.13x.cc   Ready    control-plane   2d23h   v1.28.1
+master-2.13x.cc   Ready    control-plane   2d23h   v1.28.1
+master-3.13x.cc   Ready    control-plane   2d23h   v1.28.1
+worker-1.13x.cc   Ready    &lt;none&gt;          2d23h   v1.28.1
+worker-2.13x.cc   Ready    &lt;none&gt;          2d22h   v1.28.1
+# 使用等于语法
+[root@ansible ~]# kubectl get node -l beta.kubernets.io/os=windows
+No resources found
+# 使用直接筛选
+[root@ansible ~]# kubectl get node -l node-role.kubernetes.io/control-plane=
+NAME              STATUS   ROLES           AGE     VERSION
+master-1.13x.cc   Ready    control-plane   2d23h   v1.28.1
+master-2.13x.cc   Ready    control-plane   2d23h   v1.28.1
+master-3.13x.cc   Ready    control-plane   2d23h   v1.28.1
+</code></pre>
+<p>当然要是实在记不住,你<code>grep</code>吧</p>
+<h2 id="_9">更新资源</h2>
+<p>更新资源目前有四种方式</p>
+<h3 id="edit-">edit-文本编辑器修改现有资源</h3>
+<p>有的时候我想直接修改现有资源用于调试,或者因为复杂度的原因,不方便直接使用yaml去更新文件,就推荐使用edit</p>
+<blockquote>
+<p>比如之前提到的kubeadm初始化文件,那个文件一执行就容易炸,还会导致全部节点被刷新,但是我们只想要修改一点点,就可以使用edit</p>
+</blockquote>
+<pre><code>kubectl edit &lt;资源名称&gt; &lt;对象名&gt; -n &lt;命名空间&gt;
+</code></pre>
+<h3 id="set-">set-直接修改现有资源</h3>
+<p>set的功能和edit是一样的,不同的是,set使用了命令行修改,这让他可以被插入到shell脚本中去,或者日常修改资源使用</p>
+<blockquote>
+<p>不是很推荐,这个索引巨迷惑,我没搞懂,似乎是替换法?</p>
+</blockquote>
+<p>个人建议还是edit吧...</p>
+<p>实例如下</p>
+<pre><code>kubectl set &lt;资源类型&gt; &lt;资源对象&gt; &lt;修改值&gt;
+[root@ansible ~]# kubectl set image deployment nginx nginx=nginx:v2
+deployment.apps/nginx image updated
+修改后如下
+spec:
+      containers:
+      - image: nginx:v2 # 这里发生了变更
+        imagePullPolicy: Always
+</code></pre>
+<h3 id="replace-">replace-破坏性更新</h3>
+<p>该指令和apply功能类似,不同的是replace会<strong>先删除</strong>会产生冲突的资源(该yaml需要创建,但是已经存在的资源),然后在部署(<strong>破坏性更新</strong>),类似于删除并部署;而<code>apply</code>会尝试在现有资源上去修改,实在无法实现修改的才使用删除手段</p>
+<blockquote>
+<p>apply更温柔,对于改名字啊这种操作,直接就修改了(类似于你edit去修改),而replace则暴力一些,直接全删了</p>
+</blockquote>
+<p>⚠️警告:这是破坏性更新,会导致不可控的后果,包括由于需要重新创建容器而导致资源请求数量激增等(特别是你的pod里面有链接mysql的,可能会一波干翻你的mysql)</p>
+<p>具体语法如下</p>
+<pre><code>kubectl replace nginx
+</code></pre>
+<h3 id="_10">查看日志</h3>
+<blockquote>
+<p>在K8s中,POD是最小单位</p>
+<p>一个POD中可能包含一个到复数个容器</p>
+</blockquote>
+<p>因为上述的原因,因此我们查看日志需要分为两种情况,即为复数容器POD和单个容器POD</p>
+<p>前者查看较为复杂,后者则较为简单</p>
+<h4 id="_11">单个容器查看</h4>
+<p>具体命令如下</p>
+<blockquote>
+<p>可选是否添加<code>-f</code> 添加的话代表及时追踪最新的日志(退出用<code>crtl c</code>),反之则显示从请求成功后的日志</p>
+<p>可选加入<code>tail x</code>只显示最后x行(不需要你用管道符了)</p>
+</blockquote>
+<pre><code>kubectl logs &lt;pod-name&gt; -n &lt;namespace&gt;
+# 实例
+[root@ansible ansible]# kubectl logs pods/nginx-7854ff8877-9zq92  -n default
+</code></pre>
+<p><img alt=" " src="/images/Pasted image 20240129210200.png" /></p>
+<pre><code># 添加tail
+[root@ansible ansible]# kubectl logs -f pods/nginx-7854ff8877-9zq92  -n default --tail 3
+2024/01/29 12:51:08 [notice] 1#1: start worker process 31
+2024/01/29 12:51:08 [notice] 1#1: start worker process 32
+2024/01/29 12:51:08 [notice] 1#1: start worker process 33
+</code></pre>
+<h4 id="_12">多个容器查看</h4>
+<p>多个容器查看要多一个步骤,即为指定你要查看该POD下的第几个容器</p>
+<p>命令如下</p>
+<blockquote>
+<p>使用关键字<code>-c</code></p>
+</blockquote>
+<pre><code>kubectl logs &lt;pod-name&gt; -c &lt;container-name&gt;
+# 实例 查看nginx-7854 POD中的nginx容器
+kubectl logs nginx-7854ff8877-9zq92 -c nginx
+</code></pre>
+<p>关于如何查看POD内有哪些容器,可以使用<code>kubectl get pod &lt;pod-name&gt; -o yaml</code>去查询</p>
+<p><img alt=" " src="/images/Pasted image 20240129210655.png" /></p>
+<h3 id="describe-">describe-获取资源对象详细信息</h3>
+<blockquote>
+<p>这条命令是万精油命令,除非POD被你DELETE了(其实DELETE过程中你都还能用这个看),其他所有状态机下都可以用该命令去查看信息</p>
+</blockquote>
+<p>该命令可以查看各种资源的详细信息和该资源所绑定的其他信息</p>
+<blockquote>
+<p>例如你用describe去查看pod,会列出pod状态,label,关联svs,创建的容器信息等</p>
+</blockquote>
+<p>具体语法如下</p>
+<pre><code>kubectl describe &lt;对象类型&gt; &lt;对象名称&gt; -n &lt;命名空间&gt;
+# 实例
+kubectl describe pod nginx-7854ff8877-9zq92 -n default
+</code></pre>
+<p>具体如图所示</p>
+<p><img alt=" " src="/images/Pasted image 20240129211237.png" /></p>
+<h3 id="top-">top-查看资源负载</h3>
+<p>使用该命令需要安装了<code>metrics-server</code>,该工具部署在集群之中,为集群提供了监控指标.</p>
+<p>该命令支持查询某个pod的负载和某个节点的负载</p>
+<p>命令如下</p>
+<pre><code>kubectl top &lt;node/pod&gt; &lt;node/pod-name&gt; -n &lt;namespace&gt;
+kubectl top node master-1.13x.cc -n default
+</code></pre>
+<h2 id="exec-">exec-执行命令</h2>
+<p>exec和docker差不多,在容器中执行命令,支持交互式和执行式</p>
+<p>可以采用<code>-it</code>去引出shell,从而进入到容器中</p>
+<p>具体语法如下</p>
+<blockquote>
+<p>无需指定资源类型,因为只有pod支持该命令</p>
+</blockquote>
+<pre><code># 直接执行命令
+kubectl exec &lt;pod-name&gt; -c &lt;containerd&gt; -- &lt;命令&gt;
+kubectl exec nginx-7854ff8877-9zq92 -c nginx -- ls
+# 采用交互式
+kubectl exec  &lt;pod-name&gt;  -c &lt;container-name&gt; -it --  &lt;shell&gt;
+kubectl exec  nginx-7854ff8877-9zq92  -c nginx -it --  /bin/sh
+</code></pre>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2020 - 2024 KiteMoon Build Mkdocs
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kitemoon" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "toc.integrate", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+      
+    
+  </body>
+</html>

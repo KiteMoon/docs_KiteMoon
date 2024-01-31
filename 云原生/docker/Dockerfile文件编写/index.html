@@ -1,0 +1,1154 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../Docker%E5%91%BD%E4%BB%A4/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
+    
+    
+      
+        <title>Dockerfile文件编写 - Docs KiteMoon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Dockerfile文件编写 - Docs KiteMoon" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="./assets/images/social/云原生/docker/Dockerfile文件编写.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Dockerfile文件编写 - Docs KiteMoon" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/云原生/docker/Dockerfile文件编写.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Docs KiteMoon" class="md-header__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs KiteMoon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dockerfile文件编写
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  云原生
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Docs KiteMoon" class="md-nav__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Docs KiteMoon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    云原生
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            云原生
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dockerfile文件编写
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile文件编写
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="创建流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入基础镜像-FROM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      构建中间层-RUN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-addcopy" class="md-nav__link">
+    <span class="md-ellipsis">
+      导入文件-ADD&amp;COPY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      引入环境变量-ENV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-workdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置工作目录-WORKDIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      暴露的端口号-EXPOSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器使用的用户-USER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-arg" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译入参--ARG
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      最后的步骤-CMD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      入口点-ENTRYPOINT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能1-透传参数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能2-作为初始化脚本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arg-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARG-dockerfile动态传参
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      dockerfile大小优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dockerfile大小优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      底包优化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      层优化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      分阶段构建
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      dockerfile的一些常见构建错误
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dockerfile的一些常见构建错误">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-response-from-daemon-dockerfile-parse-error-line-4-arg-names-can-not-be-blank" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error response from daemon: dockerfile parse error line 4: ARG names can not be blank
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8%E6%94%AF%E6%8C%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    容器相关入门支持
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kubernetes/K8s%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Dockerfile文件编写</h1>
+
+<h2 id="_1">简介</h2>
+<p>镜像构建其实就是一个叠叠乐的过程,通过执行一系列的命令来附加不同的层,最后将层合并为镜像来实现</p>
+<h2 id="_2">创建流程</h2>
+<p>创建镜像的过程也就是我们编辑dockerfile的过程,具体过程如下</p>
+<blockquote>
+<p>注意,文件名必须要是Dockerfile</p>
+</blockquote>
+<h3 id="-from">导入基础镜像-FROM</h3>
+<p>首先第一步,我们需要导入一个基础镜像,基础镜像提供一个最底层的OS(这个OS不完整,内核啥都是用的宿主机),这里我们选用centos,作为基础镜像.</p>
+<blockquote>
+<p>FROM一个文件中只能出现一次,只能在最开头,除非要多阶段构建</p>
+</blockquote>
+<p>FROM:继承基础镜像</p>
+<pre><code class="language-dockerfile">FROM centos:7 # 指定了centos7惊喜那个
+</code></pre>
+<h3 id="-run">构建中间层-RUN</h3>
+<p>我们导入基础镜像后,需要对镜像进行定制化,例如导入运行环境啊,引入代码啊,准备缓存目录什么的</p>
+<p>这些步骤就是中间层要做的,中间层的代码是RUN,一个容器可以有执行多次RUN,每执行一次RUN代表新生成一个层</p>
+<blockquote>
+<p>因此不建议部署太多的RUN,额外的层会带来额外的开销</p>
+</blockquote>
+<p>RUN后面跟应该跟随的是一个Linux命令,具体如下</p>
+<pre><code>FROM centos:7
+RUN useradd kitemoon
+RUN go build ./
+</code></pre>
+<p>上面的例子其实不好,因此一条命令就占用了一个层,会导致不必要的层出现,因此我们最好这样写</p>
+<pre><code>FROM centos:7
+RUN useradd kitemoon &amp;&amp; go build ./
+</code></pre>
+<h3 id="-addcopy">导入文件-ADD&amp;COPY</h3>
+<p>导入文件分为两种,COPY和ADD</p>
+<p>一般来说,我们不会在容器中去下载过多的软件,这一系列软件也包含了<code>curl</code>和<code>wget</code>,但是没了他们我们业务代码就不好导入了,此时就可以使用<code>ADD</code>指令,将我们本地文件复制到容器之中</p>
+<blockquote>
+<p>你会发现很多开源项目很喜欢把dockerfile放到根目录,因为这样很好做CICD</p>
+</blockquote>
+<p>具体的实现指令如下</p>
+<p>ADD命令如下</p>
+<blockquote>
+<p>注意,ADD如果移动的是压缩包,会<strong>自动解压</strong></p>
+</blockquote>
+<pre><code>ADD &lt;宿主机文件路径&gt; &lt;容器内路径&gt;
+ADD ./install.tar /mnt/app/
+</code></pre>
+<p>copy命令如下</p>
+<blockquote>
+<p>COPY是不会自动解压的,因此你还得开个RUN,然后去解压</p>
+</blockquote>
+<pre><code>copy &lt;宿主机文件路径&gt; &lt;容器内路径&gt;
+copy ./install.tar /mnt/app/
+</code></pre>
+<blockquote>
+<p>请注意,COPY和ADD都是dockerfile的文件,他不是系统命令,因此是不支持你添加<code>-r</code>参数来实现连着根路径一起拷贝过去,他默认会<strong>将文件夹下</strong>的内容拷贝过去,因此你得指定路径实现曲线救国</p>
+</blockquote>
+<pre><code># 把temp文件夹下的内容拷贝到root
+COPY temp /root/
+# 查看root会发现里面是 1 2 3
+# 把temp文件夹下的内容拷贝到/root/temp下
+COPY temp /root/temp
+# 查看root会发现里面是 temp
+</code></pre>
+<h3 id="-env">引入环境变量-ENV</h3>
+<p>在容器中,有个很重要的概念就是环境变量,因为容器大概率跑的是无状态的应用,但是你的程序极大概率是要引入配置文件的(比如外部数据库的账号密码等),这种情况下,就需要使用环境变量,在环境变量中存储账号密码信息,你的程序连接数据库的位置采用环境变量,这样有效的避免了无意义的卷映射.</p>
+<blockquote>
+<p>没必要为了改一个配置文件去设置-v参数,特别是多容器环境下,更不应该如此,也很难实现,这就是为啥有configmap的存在</p>
+</blockquote>
+<p>引入的代码如下</p>
+<pre><code># 格式1
+ENV &lt;key&gt; &lt;VALUE&gt;
+# 格式2
+ENV &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt;
+ENV mysqlHost 192.168.92.100
+</code></pre>
+<blockquote>
+<p>支持用<code>-e &lt;key&gt;=&lt;value&gt;</code>去覆盖这个环境变量,CLI的优先级高于dockerfile的.</p>
+</blockquote>
+<p>之后你去容器里面拉环境变量就可以看到我们设置的环境变量了</p>
+<blockquote>
+<p>灵活运用可以让体验优化,比如默认build的时候就携带了ENV,采用本地SQL,用户可以通过<code>-e</code>让他修改为mysql</p>
+</blockquote>
+<h3 id="-workdir">配置工作目录-WORKDIR</h3>
+<p>配置工作目录比较重要,他关系到你RUN和CMD执行的位置</p>
+<p>RUN和CMD执行的默认位置为<code>/</code>,但是你指定了工作目录后,会以工作目录来执行,也就无需提前开个RUN进入到指定路径中.直接就可以在工作目录下工作</p>
+<pre><code>WORKDIR &lt;工作路径&gt;
+WORKDIR /mnt/app
+</code></pre>
+<blockquote>
+<p>修改workdir后,你bash进去的路径也会变成你设置的工作路径</p>
+</blockquote>
+<h3 id="-expose">暴露的端口号-EXPOSE</h3>
+<p>在WEB服务上,我们希望能够暴露端口出来,提供给我们的其他POD或者用户使用,就需要理由该特性</p>
+<blockquote>
+<p>你不设置...其实也可以访问</p>
+<p>支持多条EXPOSE语句</p>
+</blockquote>
+<pre><code>EXPOSE &lt;端口号&gt;
+EXPOSE 80
+</code></pre>
+<h3 id="-user">容器使用的用户-USER</h3>
+<p>容器大多数情况下都会自动使用root,但是有的软件比较挑剔,比如是从裸机迁移到容器中,就会强制要求用户使用非ROOT用户,此时就需要使用USER参数去实现了</p>
+<blockquote>
+<p>minikube好像就必须运行在非root用户上</p>
+</blockquote>
+<pre><code>USER &lt;用户名&gt;
+USER KiteMoon
+</code></pre>
+<h3 id="-arg">编译入参--ARG</h3>
+<p>ARG可以用于设置编译镜像时传入的参数,来实现基于模板构建</p>
+<blockquote>
+<p>有的用户很挑剔啊,LABEL必须要是自己公司的名字,但是我们又不可能手动改,就用这个</p>
+</blockquote>
+<p>用得少,我也没用过,这里就不多写,怕误导</p>
+<h3 id="-cmd">最后的步骤-CMD</h3>
+<p>之前容器的状态部分我说过,容器停止的依据不是基于我们exec进去的shell,而是基于容器CMD所执行语句的状态决定的</p>
+<p>在容器启动时,会执行最后一个CMD语句,在该语句执行结束后,或者发生错误退出后,<strong>容器会自动进入停止状态</strong>,这也是我们希望看见的.</p>
+<p>因此,请将你程序的启动指令放在这里,作为启动命令,如果你的程序执行完毕,那么容器也会停止,资源也会自动释放</p>
+<blockquote>
+<p>如果你在docker run的过程中后面加了命令,则会替换掉你CMD的命令,你容器的启动与停止也决定于你执行的这条命令</p>
+</blockquote>
+<pre><code>CMD &lt;启动程序的代码&gt;
+CMD /proess
+</code></pre>
+<h3 id="-entrypoint">入口点-ENTRYPOINT</h3>
+<p>ENTRYPOINT可以和CMD共存,请注意</p>
+<p>具体实现的功能如下</p>
+<h3 id="1-">功能1-透传参数</h3>
+<p>有的时候,我们希望用户启动容器的时候,为我们导入一个参数信息,例如容器内程序的启动密码等,但是直接使用环境变量会提高软件的使用难度,因此就可以为他添加入口点</p>
+<p>入口点支持将用户的的在启动容器时输入的参数<strong>透传到容器内部</strong></p>
+<p>语法如下</p>
+<pre><code>ENTRYPOINT &lt;启动命令&gt;
+ENTRYPOINT /app/run
+ENTRYPOINT [ &quot;/app/run&quot; ]
+</code></pre>
+<blockquote>
+<p>entrypoint 其实并不是直接屏蔽了用户命令后面跟着的参数,而是直接当做入参,因此你可以把他当做启动密码的输入点.</p>
+</blockquote>
+<pre><code># 当我执行容器的时候,就实现了参数传递
+docker run sss:v1 123456
+# 执行上述参数的时候,约等于在容器中执行了
+/app/run 123456
+</code></pre>
+<p>我在网上找了个好的例子,myip</p>
+<blockquote>
+<p>myip是ipip提供的一个接口,能看到你自己的IP地址</p>
+</blockquote>
+<p>容器内部是使用curl去请求一个URL,然后返回值</p>
+<pre><code class="language-dockerfile">FROM centos:7
+RUN yun update &amp;&amp; yum install curl
+ENTRYPOINT [ &quot;curl&quot; &quot;-s&quot; &quot;http://myip.ipip.net&quot; ]
+</code></pre>
+<p>正常情况下执行会返回</p>
+<pre><code>docker run ipip
+当前 IP：xx.xx.xx.xx 来自：xx市 xx
+</code></pre>
+<p>如果这个时候我们想查看http头,则无需修改dockerfile或者进入容器,只需要这样执行指令即可</p>
+<pre><code>docker run ipip -i
+&lt;header信息&gt;
+
+当前 IP：xx.xx.xx.xx 来自：xx市 xx
+</code></pre>
+<p>在这里,ENTRYPOINT就实现了参数透传的功能,将用户补充的<code>-i</code> 透传到内部中,此时内部执行的代码就变成了</p>
+<pre><code>curl -s http://myip.ipip.net -i # &lt;-这就是刚才透传进来的
+</code></pre>
+<h3 id="2-">功能2-作为初始化脚本</h3>
+<p>ENTRYPOINT其实是可以作为一个前置步骤放到CMD前面的,可以降低对环境变量的依赖</p>
+<p>例如我的容器需要先判断启动模式,是客户端模式还是服务器,用户在启动的时候会在启动命令中输入<code>server</code>或者<code>client</code>,之后该参数将会透传到容器内部,被ENTRYPOINT捕获,并通过该参数的值去判断是执行服务端初始化还是客户端初始化</p>
+<pre><code class="language-dockerfile">FROM centos:7
+ENTRYPOINT [&quot;/init/init.sh&quot;]
+CMD /app/run
+</code></pre>
+<p>在上述的dockerfile文件中,我们用户如果输入的是server,则入口点会自动执行<code>/init/init.sh server</code>进行服务器初始化 最后启动主程序,这就是一种使用方法</p>
+<p>如果对这个感兴趣可以去看下redis的dockerfile,在他的启动命令中,有一个参数要求用户是服务端启动还是客户端启动,也是利用了入口点的特性.</p>
+<h2 id="arg-dockerfile">ARG-dockerfile动态传参</h2>
+<blockquote>
+<p>一般是用在CICD上多一些</p>
+</blockquote>
+<p>ARG关键字用于在dockerfile内放置一个变量,并接受用户在build时所附加的参数上,并且支持<strong>默认参数</strong>(即为你没有传递该参数时默认使用的值),这样可以有效降低dockerfile的编写成本呢</p>
+<blockquote>
+<p>ARG只在构建过程中有效,构建后就没了</p>
+<p>以后改版本号啊什么的都可以用ARG,然后Jenkins在编译时提供版本号参数,实现一个dockerfile适应多个版本</p>
+</blockquote>
+<p>关键字如下</p>
+<pre><code class="language-dockerfile"># 这里是dockerfile
+FROM centos:7
+ARG USERNAME # 不提供默认值变量
+ARG SHELLPATH=&quot;/bin/bash&quot; # 提供默认值
+RUN useradd $USERNAME -s $SHELLPATH # 调用变量创建这个用户,并指定shell
+USER $USERNAME
+CMD echo &quot;HELLOWORLD&quot;
+</code></pre>
+<blockquote>
+<p>警告,请不要在dockerfile外使用ARG提供的变量信息,这是无效的!!!!特别是在CMD中去调用这些变量返回的只会为空,如果你有需要,请用ENV去实现.</p>
+</blockquote>
+<p>之后我们只需要在构建过程中添加选项<code>--build-arg</code>,并在后续使用<code>key=value</code>的格式去赋予值即可</p>
+<pre><code>docker build --build-arg USERNAME=kitemoon .
+</code></pre>
+<h2 id="dockerfile">dockerfile大小优化</h2>
+<p>我们在之前的例子中,都是<code>from</code>的centos,但是实际上centos的包很大,也包含了很多我们用不上的功能,因此容器的镜像大小很大,这很不利于我们在生产集群中的部署(分发个包下去,十分钟内整个控制平面全是image),因此就有了这个部分,对镜像大小进行优化</p>
+<blockquote>
+<p>生产环境中不建议使用系统级别的镜像,很大很多,也不安全</p>
+</blockquote>
+<p>优化大小一般是两个部分:<strong>底包大小优化</strong>和<strong>层优化</strong></p>
+<h3 id="_3">底包优化</h3>
+<p>底包优化的话,我们一般使用底包是<code>alpine</code>镜像,centos的低包太大了</p>
+<blockquote>
+<p>centos7的底包是204MB alpine是</p>
+</blockquote>
+<p>因此,我们更多的使用alpine去构建</p>
+<blockquote>
+<p>alpine的软件包管理器是apk 添加软件是adduser命令(-D为不要密码)</p>
+</blockquote>
+<p>因此我们可以修改一下我们的程序</p>
+<pre><code>FROM alpine:3.12
+RUN adduser -D kitemoon
+CMD echo &quot;helloworld&quot;
+</code></pre>
+<p>构建速度回很快,而且很小</p>
+<pre><code>Step 1/3 : FROM alpine:3.12
+ ---&gt; 24c8ece58a1a
+Step 2/3 : RUN adduser -D kitemoon
+ ---&gt; Running in 4929d5560df0
+Removing intermediate container 4929d5560df0
+ ---&gt; 2616f3daf04e
+Step 3/3 : CMD echo &quot;helloworld&quot;
+ ---&gt; Running in be25277c5557
+Removing intermediate container be25277c5557
+ ---&gt; dc2daf7f715d
+Successfully built dc2daf7f715d
+</code></pre>
+<p>大小也很小</p>
+<p><img alt=" " src="/images/Pasted image 20240131160350.png" /></p>
+<p>而且功能依旧正常,因此,选择合适的底层镜像是非常有必要的</p>
+<blockquote>
+<p>注意,对于java等还价下,建议去官网直接找他们的基础镜像,有特殊优化</p>
+</blockquote>
+<h3 id="_4">层优化</h3>
+<p>对于层优化,我们可以先看下我们的镜像有多少层</p>
+<p>关键命令是<code>docker history &lt;image-name&gt;</code>,这里我随便拉出来一个比较标准的层结构,即可从中分析每个层占用他了多少空间</p>
+<p><img alt=" " src="/images/Pasted image 20240131155041.png" /></p>
+<p>一般来说,我们对层的优化,都是让他尽可能的变少,哪怕你看着他占用空间几乎没有,但是他依旧是额外的开销,因此我们很喜欢在一个RUN中执行完所有要初始化的步骤,下面是对比图</p>
+<p>正常情况下,我们使用多个RUN去执行操作,可以看到,我们有七层(不计算FROM层)</p>
+<p><img alt=" " src="/images/Pasted image 20240131155657.png" /></p>
+<p>如果直接一个RUN + 连接符实现一次完成操作,那么层数就会变少,6层就搞定了</p>
+<p><img alt=" " src="/images/Pasted image 20240131155725.png" /></p>
+<h3 id="_5">分阶段构建</h3>
+<p>挺多时候,我们的代码拉下来是要先构建一次,然后生成二进制文件,最后运行这个二进制</p>
+<p>这就产生了一个问题,在编译的过程中,会产生太多的依赖文件了(比如golang下要给你下一堆依赖包用于构建),但是这些依赖文件你是不需要的,你只需要二进制文件,因此我们需要分为两个阶段去构建,阶段一构建,阶段二去执行二进制</p>
+<p>为了避免这个情况,docker设计了分阶段构建机制,你可以通过二次FROM的方式,让docker只使用第二阶段进行构建,同时不丢失第一阶段的构建结果</p>
+<blockquote>
+<p>简单举个例子,你前四部是阶段1,在第四步完成了构建,然后第五到第八步才是第二阶段,docker支持运行第1-4步,并且让你在第五步把前面生产的产物给取出来,随后丢弃到第1阶段的内容,只构建后续的步骤</p>
+<p>其实很多时候,外部CICD已经给你生成好二进制了,这里倒也不需要去分阶段构建了</p>
+</blockquote>
+<p>我们这里需要使用的关键字是<code>FROM scratch</code></p>
+<p>具体命令如下</p>
+<pre><code>FROM golang:1.20 AS gobuild # 这里不能少,标识这里是构建阶段gobuild
+WORKDIR /opt
+COPY hello.go /opt
+RUN go build /opt/hello.go # 编译出产物
+# 构建步骤2
+FROM scratch 
+COPY --from=gobuild /opt/hello . # --from代表从哪个编译阶段中提取文件
+CMD &quot;./hello&quot; # 执行
+</code></pre>
+<h2 id="dockerfile_1">dockerfile的一些常见构建错误</h2>
+<h3 id="error-response-from-daemon-dockerfile-parse-error-line-4-arg-names-can-not-be-blank">Error response from daemon: dockerfile parse error line 4: ARG names can not be blank</h3>
+<p>该错误是因为你用ARG的时候,在赋予变量默认值的过程中打空格了</p>
+<pre><code># 错误例子
+ARG SHELLPATH = &quot;/bin/bash&quot;
+</code></pre>
+<p>请不要打空格</p>
+<pre><code># 正确操作
+ARG SHELLPATH=&quot;/bin/bash&quot;
+</code></pre>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2020 - 2024 KiteMoon Build Mkdocs
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kitemoon" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "toc.integrate", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1243 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Dockerfile%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99/">
+      
+      
+        <link rel="next" href="../%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8%E6%94%AF%E6%8C%81/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
+    
+    
+      
+        <title>Docker命令 - Docs KiteMoon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Docker命令 - Docs KiteMoon" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="./assets/images/social/云原生/docker/Docker命令.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Docker命令 - Docs KiteMoon" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/云原生/docker/Docker命令.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Docs KiteMoon" class="md-header__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs KiteMoon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker命令
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  云原生
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Docs KiteMoon" class="md-nav__button md-logo" aria-label="Docs KiteMoon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Docs KiteMoon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    云原生
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            云原生
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dockerfile%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile文件编写
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker命令
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Docker命令
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker基础命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker基础命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看docker版本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看docker详细信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      镜像操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="镜像操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询镜像列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      搜索镜像
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      下载镜像
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改镜像名称(打TAG)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      登录命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="容器操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      创建容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      进入容器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊的启动容器方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看日志
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      映射端口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器内一些网络细节
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看容器详细信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看容器列表
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据持久化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据持久化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      拷贝文件到容器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8%E6%94%AF%E6%8C%81/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    容器相关入门支持
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kubernetes/K8s%E7%9A%84%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Docker命令</h1>
+
+<h2 id="docker">Docker基础命令</h2>
+<h3 id="docker_1">查看docker版本</h3>
+<pre><code>docker version
+</code></pre>
+<p>返回如下</p>
+<pre><code>Client: Docker Engine - Community # 客户端
+ Version:           24.0.7 # 版本
+ API version:       1.43 # APi版本
+ Go version:        go1.20.10 # golang版本
+ Git commit:        afdd53b # 基于哪个commit构建的
+ Built:             Thu Oct 26 09:08:01 2023 # 构建时间
+ OS/Arch:           linux/amd64 # 主机架构
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          24.0.7
+  API version:      1.43 (minimum version 1.12)
+  Go version:       go1.20.10
+  Git commit:       311b9ff
+  Built:            Thu Oct 26 09:08:01 2023
+  OS/Arch:          linux/amd64
+  Experimental:     false # 是否为非生产版本(测试版本)
+ containerd:
+  Version:          1.6.24 
+  GitCommit:        61f9fd88f79f081d64d6fa3bb1a0dc71ec870523
+ runc:
+  Version:          1.1.9 
+  GitCommit:        v1.1.9-0-gccaecfc
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+</code></pre>
+<h3 id="docker_2">查看docker详细信息</h3>
+<p>采用命令</p>
+<pre><code>docker info
+</code></pre>
+<p>返回值如下</p>
+<pre><code>Client: Docker Engine - Community # 客户端相关
+ Version:    24.0.7
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.15.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+  scan: Docker Scan (Docker Inc.)
+    Version:  v0.23.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-scan
+
+Server:
+ Containers: 10 # 总容器数量
+  Running: 10 # 正在运行的容器数量
+  Paused: 0 # 暂停的容器数量
+  Stopped: 0 # 已经停止的容器数量
+ Images: 17 # 镜像数量
+ Server Version: 24.0.7 # docker server版本
+ Storage Driver: overlay2 # 存储驱动类型(基本上都是这个,还有Aufs brtfs等)
+  Backing Filesystem: extfs # 服务器文件系统(我服务器用的EXT4,没用xfs)
+  Supports d_type: true # xfs文件类型下,该选项要为true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file # 日志存储方式,本地json文件
+ Cgroup Driver: cgroupfs # 限制与隔离驱动(有cgroup和systemd,建议systemd)
+ Cgroup Version: 1 # cgroup版本
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive # docker官方的容器编排工具的启动状态
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 61f9fd88f79f081d64d6fa3bb1a0dc71ec870523
+ runc version: v1.1.9-0-gccaecfc
+ init version: de40ad0
+ Security Options:
+  apparmor
+  seccomp
+   Profile: builtin
+ Kernel Version: 5.4.0-126-generic
+ Operating System: Ubuntu 20.04 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 4
+ Total Memory: 3.339GiB
+ Name: VM-20-5-ubuntu
+ ID: 6b807293-e0d2-4abe-bca0-0e9a3edc6afe
+ Docker Root Dir: /var/lib/docker # docker的根目录,最好不要安装在系统盘,最好放到SSD上,因为容器要读取里面的镜像,自己的读写层也要放在这里面
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Registry Mirrors:
+  https://reg-mirror.qiniu.com/ # 仓库地址
+ Live Restore Enabled: false # docker热更新,生产环境建议为True,这里表示docker重启后容器要不要一起重启.
+
+WARNING: No swap limit support
+</code></pre>
+<h2 id="_1">镜像操作</h2>
+<h3 id="_2">查询镜像列表</h3>
+<pre><code># 二选一即可
+docker images
+docker image ls
+</code></pre>
+<p>返回如下</p>
+<blockquote>
+<p>删除要用image ID</p>
+</blockquote>
+<pre><code>REPOSITORY                                                                      TAG         IMAGE ID       CREATED         SIZE
+nginx                                                                           latest      a8758716bb6a   3 months ago    187MB
+louislam/uptime-kuma                                                            1           8d35ad2f33a6   4 months ago    431MB
+coredns/coredns                                                                 latest      cbb01a7bd410   5 months ago    59.8MB
+traffmonetizer/cli                                                              latest      ea46ea6b3d88   8 months ago    28.1MB
+neosmemo/memos                                                                  latest      c6684853e589   11 months ago   34.6MB
+</code></pre>
+<h3 id="_3">搜索镜像</h3>
+<p>从你的容器仓库中去寻找某个镜像</p>
+<pre><code>docker search &lt;image_name&gt;
+</code></pre>
+<p>返回如下</p>
+<pre><code>NAME                               DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+nginx                              Official build of Nginx.                        19549     [OK]       
+unit                               Official build of NGINX Unit: Universal Web …   20        [OK]       
+nginxinc/nginx-unprivileged        Unprivileged NGINX Dockerfiles                  140                  
+</code></pre>
+<h3 id="_4">下载镜像</h3>
+<p>从容器仓库中下载镜像</p>
+<blockquote>
+<p>注意,你不佳前缀默认是去默认仓库(docker.io)去拉,如果你需要从自己的仓库拉取,请使用下面的方式</p>
+</blockquote>
+<p>注意下面的命令,xxx是你仓库的域名,zzz是你项目名称(harbor)或docker的用户名,tttt是镜像的名称,yy是仓库的tag,tag可以简单理解为镜像版本</p>
+<pre><code># 直接从仓库拉
+docker image pull nginx
+# 从私有镜像拉取
+docker image pull registry.xxx.xxx/zzzz/tttt:yy
+</code></pre>
+<p>返回如下</p>
+<pre><code>root@VM-20-5-ubuntu:~# docker image pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+2f44b7a888fa: Pull complete # 这些代表一个层
+8b7dd3ed1dc3: Pull complete # 这些代表一个层
+35497dd96569: Pull complete # 这些代表一个层
+36664b6ce66b: Pull complete # 这些代表一个层
+2d455521f76c: Pull complete # 这些代表一个层
+dc9c4fdb83d6: Pull complete # 这些代表一个层
+8056d2bcf3b6: Pull complete # 这些代表一个层
+Digest: sha256:4c0fdaa8b6341bfdeca5f18f7837462c80cff90527ee35ef185571e1c327beac
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+</code></pre>
+<blockquote>
+<p>注意,如果你发现从官网拉下来的size不一样,是正常的,因为image有层的概念,构建的时候如果这个层存在,则不会计入size,但是我们自己拉下来的时候是需要有哪些基础层的,因此会出现下载大小更大的情况</p>
+</blockquote>
+<h3 id="tag">修改镜像名称(打TAG)</h3>
+<blockquote>
+<p>修改不会占用额外的空间,而是会直接改名,你看到两个一样大小的,其实用的是一个文件</p>
+<p>很多时候你拿下来一个基础镜像,二次加工后要push到自己的仓库,就需要该命令</p>
+<p>如果修改原有的镜像名称存在TAg,请不要忘记TAG,或者直接image id</p>
+</blockquote>
+<pre><code>docker tag &lt;原来镜像的名称/ID&gt; &lt;新的镜像名称&gt;
+docker tag nginx:latest blog.13x.cc/nginx/nginx:v20
+</code></pre>
+<blockquote>
+<p>该命令无返回值,你查看镜像列表即可看到效果</p>
+</blockquote>
+<pre><code>REPOSITORY                                                                      TAG         IMAGE ID       CREATED         SIZE
+blog.13x.cc/nginx/nginx                                                         v20         a8758716bb6a   3 months ago    187MB
+nginx                                                                           latest      a8758716bb6a   3 months ago    187MB
+
+</code></pre>
+<h2 id="_5">登录命令</h2>
+<blockquote>
+<p>登录命令各家都不一样,贵司IT会告诉你的</p>
+</blockquote>
+<h2 id="_6">容器操作</h2>
+<h3 id="_7">创建容器</h3>
+<p>进入容器较为简单,但是他有一系列的参数,这里我不做过多的操作,后续会更新如果端口映射和挂存储卷.</p>
+<p>运行命令很简单</p>
+<pre><code>docker run &lt;image_name&gt;
+</code></pre>
+<p>运行结果如下</p>
+<pre><code>root@VM-20-5-ubuntu:~# docker run nginx
+/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+/docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+/docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+/docker-entrypoint.sh: Configuration complete; ready for start up
+2024/01/30 07:59:29 [notice] 1#1: using the &quot;epoll&quot; event method
+2024/01/30 07:59:29 [notice] 1#1: nginx/1.25.3
+2024/01/30 07:59:29 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/30 07:59:29 [notice] 1#1: OS: Linux 5.4.0-126-generic
+2024/01/30 07:59:29 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/30 07:59:29 [notice] 1#1: start worker processes
+2024/01/30 07:59:29 [notice] 1#1: start worker process 29
+2024/01/30 07:59:29 [notice] 1#1: start worker process 30
+2024/01/30 07:59:29 [notice] 1#1: start worker process 31
+2024/01/30 07:59:29 [notice] 1#1: start worker process 32
+</code></pre>
+<p>需要注意,如果你要让容器在后台运行,请使用<code>-d</code>命令,如果你希望容器停止后立刻就删除(JOB类容器),请使用<code>-rm</code></p>
+<pre><code>docker run &lt;image-name&gt; -d
+root@VM-20-5-ubuntu:~# docker run -d nginx
+7428381f89eda9b2a14bf2a94e335a802cecf1a68b64fc83222d7a0197da172b
+</code></pre>
+<h3 id="_8">删除容器</h3>
+<p>删除要分为两个步骤,停止 删除.你不能直接删除一个在运行中的容器,这里假定你已经删除了容器</p>
+<pre><code>docker remove &lt;容器ID&gt;
+root@VM-20-5-ubuntu:~# docker remove 7625d02032d8
+</code></pre>
+<blockquote>
+<p>该操作会返回容器的ID,代表已经删除</p>
+</blockquote>
+<h3 id="_9">进入容器</h3>
+<blockquote>
+<p>进入容器前,需要确保你容器中有个shell,否则会因为没有shell被弹出来</p>
+</blockquote>
+<p>进入容器很简单,主要一开<code>-it</code>也就是生成tty和交互式终端</p>
+<pre><code>docker exec -it &lt;contianerd-id&gt; &lt;shell位置&gt;
+root@VM-20-5-ubuntu:~# docker exec -it 7428381f89ed /bin/bash
+</code></pre>
+<p>进入中断后会发现名称啥的都变了</p>
+<pre><code>root@7428381f89ed:/# ls
+</code></pre>
+<p>退出可以用<code>exit</code></p>
+<blockquote>
+<p>注意,你这里的退出不会导致容器停止,容器停止是基于dockerfile中CMD执行那条命令决定的,那条语句结束了,容器停止了</p>
+</blockquote>
+<h3 id="_10">特殊的启动容器方法</h3>
+<blockquote>
+<p>该方法只适合于调试</p>
+</blockquote>
+<p>当我们不希望使用image自带的CMD命令,而希望提供给我们个交互终端,我们自己进去调试运行,就可以使用下面这种命令方式</p>
+<blockquote>
+<p>这种方式下,我们一旦退出容器,容器就会自动停止</p>
+<p>这种方式下,容器原有的CMD命令将不会执行</p>
+</blockquote>
+<pre><code>docker run -it &lt;image-name&gt; &lt;shell-path&gt;
+docker run -it nginx /bin/bash
+</code></pre>
+<h3 id="_11">查看日志</h3>
+<p>查看日志和k8s一样,就不过多赘述了</p>
+<p><code>-f</code>代表持续输出</p>
+<blockquote>
+<p>有的容器运行久了请用tail处理下,别卡死了</p>
+</blockquote>
+<pre><code>docker logs -f &lt;container-id&gt;
+docker logs b116a -f - tail 1
+</code></pre>
+<p>返回如下</p>
+<pre><code>{&quot;time&quot;:&quot;2024-01-30T08:11:09Z&quot;,&quot;latency&quot;:&quot;100.493µs&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;/&quot;,&quot;status&quot;:200,&quot;error&quot;:&quot;&quot;}
+</code></pre>
+<h3 id="_12">映射端口</h3>
+<p>映射端口较为简单,<code>-p</code>即可,别忘了顺序,先宿主机再容器内</p>
+<p>一个<code>-p</code>只能映射一个,要多个请多次<code>-p</code></p>
+<pre><code>docker run -p &lt;宿主机端口&gt;:&lt;容器内端口&gt; &lt;image-name&gt;
+</code></pre>
+<p>如果需要查看映射的端口,请使用下面的命令</p>
+<pre><code>netstat -ltup | grep &lt;映射的端口&gt;
+</code></pre>
+<p>效果如下</p>
+<pre><code>root@VM-20-5-ubuntu:~# netstat -ltup | grep 8008
+tcp        0      0 0.0.0.0:8008            0.0.0.0:*               LISTEN      1879042/docker-prox 
+tcp6       0      0 [::]:8008               [::]:*                  LISTEN      1879049/docker-prox 
+</code></pre>
+<h3 id="_13">容器内一些网络细节</h3>
+<p>在docker中,已经为你准备好网卡了,正常情况下来说,你docker内有多少个网络,你的宿主机就会有多少张虚拟网卡,你可以直接通过容器的IP地址+端口直接访问到容器,而无需使用端口映射</p>
+<blockquote>
+<p>两个容器网络之间还是会隔离的,但是对于宿主机来说,默认接入了所有的网络</p>
+</blockquote>
+<p>如果我们希望尝试从宿主机访问容器内端口,可以尝试用下面的命令提取IP</p>
+<pre><code>docker inspect &lt;containerd-id&gt; | grep IPAddress
+</code></pre>
+<p>应该会返回这个</p>
+<pre><code>root@VM-20-5-ubuntu:~# docker inspect 742 | grep IPAddress
+            &quot;SecondaryIPAddresses&quot;: null,
+            &quot;IPAddress&quot;: &quot;172.17.0.5&quot;,
+                    &quot;IPAddress&quot;: &quot;172.17.0.5&quot;,
+</code></pre>
+<blockquote>
+<p>上面命令就是搜索的,你可以不用管道符自己翻</p>
+</blockquote>
+<p>然后就可以用该IP地址去访问了</p>
+<pre><code>oot@VM-20-5-ubuntu:~# curl 172.17.0.5
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+&lt;style&gt;
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+&lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="_14">查看容器详细信息</h3>
+<p>有的时候,我们希望能够查看这个容器的具体信息,比如分配的IP地址,空间等信息,在K8s中是用<code>describe</code>,在docker中则会使用<code>inspect</code>,具体如下</p>
+<pre><code>docker inspect &lt;container-id&gt;
+docker inspect 742
+</code></pre>
+<p>返回值如下</p>
+<pre><code># 内容很多,我这里只提取了网络
+&quot;Networks&quot;: {
+                &quot;bridge&quot;: {
+                    &quot;IPAMConfig&quot;: null,
+                    &quot;Links&quot;: null,
+                    &quot;Aliases&quot;: null,
+                    &quot;NetworkID&quot;: &quot;0c234516647e2823308c832e4425ec9faea43ecf8b499d394b25c440a279ea5c&quot;,
+                    &quot;EndpointID&quot;: &quot;ec44060ebb2ff7cd747ebde16007d248205f0336d458ff1d716b09b63941f037&quot;,
+                    &quot;Gateway&quot;: &quot;172.17.0.1&quot;,
+                    &quot;IPAddress&quot;: &quot;172.17.0.5&quot;,
+                    &quot;IPPrefixLen&quot;: 16,
+                    &quot;IPv6Gateway&quot;: &quot;&quot;,
+                    &quot;GlobalIPv6Address&quot;: &quot;&quot;,
+                    &quot;GlobalIPv6PrefixLen&quot;: 0,
+                    &quot;MacAddress&quot;: &quot;02:42:ac:11:00:05&quot;,
+                    &quot;DriverOpts&quot;: null
+                }
+</code></pre>
+<h3 id="_15">查看容器列表</h3>
+<p>命令很简单,不多赘述,加上<code>-a</code>参数可以查看停止运行的容器,默认只会显示正在运行的容器</p>
+<pre><code>docker ps
+</code></pre>
+<h2 id="_16">数据持久化</h2>
+<blockquote>
+<p>这里是Docker版本的,K8s的后面去自己看</p>
+</blockquote>
+<p>正常情况下,容器分为读写层和镜像层,镜像层是只读的,我们所有对容器的文件操作都是发生在<strong>读写层</strong>.</p>
+<blockquote>
+<p>容器每次被构建,都会以最干净的状态去启动</p>
+</blockquote>
+<p>但是读写层存在一个问题,<strong>读写层生命周期和容器同步</strong>,也就是说,容器存在时,读写层存在,<strong>容器删除后,读写层也被删除了</strong></p>
+<p>该特性就不太利于持续部署,特别是集群环境下,而且如果容器挂了里面的数据也就丢失了,而且也不太方便读取配置文件这种操作(生产环境和开发环境配置不同,你配置文件封装到了镜像层,你没法去持久化修改)</p>
+<blockquote>
+<p>典型例子就是mysql容器.你要是没注意重建了,数据就消失了</p>
+</blockquote>
+<p>因此我们需要使用绑定卷的方式,操作很简单<code>-v</code>即可</p>
+<blockquote>
+<p>绑定卷:将虚拟机的某一路径和物理机的某一路径绑定,因为我们是将宿主机绑定到存储卷上,因此叫绑定卷</p>
+<p>路径绑定请使用绝对路径,映射路径无需添加尾部<code>/</code></p>
+</blockquote>
+<pre><code>docker run -v &lt;宿主机路径&gt;:&lt;容器内路径&gt; &lt;image-name&gt; 
+docker run -v /mnt/nginx/html:/usr/share/nginx/html
+</code></pre>
+<h3 id="_17">拷贝文件到容器</h3>
+<blockquote>
+<p>用的真的很少</p>
+</blockquote>
+<p>有的时候你希望把你本地的一个文件换到容器内种,就可以用到这个命令</p>
+<pre><code>docker cp &lt;本地文件路径&gt; &lt;容器ID&gt;:&lt;容器内路径&gt;
+</code></pre>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2020 - 2024 KiteMoon Build Mkdocs
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kitemoon" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.prefetch", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "toc.integrate", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+      
+    
+  </body>
+</html>
