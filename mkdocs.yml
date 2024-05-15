@@ -1,0 +1,28 @@
+site_name: KiteMoon_Docs
+site_url: https://docs-kitemoon.vercel.app/
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.prune
+    - toc.follow
+    - navigation.top
+    - search.share
+    - search.suggest
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+plugins:
+  - search
